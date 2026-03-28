@@ -3,6 +3,7 @@ import GeneratorLayout from "./generator/layouts/GeneratorLayout";
 import HomePage from "./generator/pages/home/HomePage";
 import ErrorPage from "./generator/pages/error/ErrorPage";
 import GeneratorPage from "./generator/pages/generator/GeneratorPage";
+import MinutaGeneratedPage from "./generator/pages/minuta/MinutaGeneratedPage";
 
 export const appRouter = createHashRouter([
     {
@@ -19,5 +20,11 @@ export const appRouter = createHashRouter([
                 element: <GeneratorPage />,
             },
         ],
+    },
+
+    {
+        path: 'minuta',
+        element: <MinutaGeneratedPage />,
+        errorElement: <ErrorPage />,
     },
 ])

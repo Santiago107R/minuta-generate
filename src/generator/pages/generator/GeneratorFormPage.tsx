@@ -1,21 +1,19 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { CalendarDays, Users, FileText, CheckCircle, CalendarPlus } from "lucide-react";
+import type { FormValues } from "../../types/FormValues";
 
-type FormValues = {
-    asistencia: string;
-    temas: string;
-    desarrollo: string;
-    conclusion: string;
-    proximaFecha?: string;
-};
 
-const GeneratorFormPage = () => {
-    const [actionType, setActionType] = useState<"pdf" | "print" | null>(null);
+
+interface Props {
+
+    onSubmit: (formLike: FormValues) => void;
+}
+
+const GeneratorFormPage = ({ onSubmit }: Props) => {
 
     const {
         register,
@@ -23,32 +21,20 @@ const GeneratorFormPage = () => {
         formState: { errors },
     } = useForm<FormValues>();
 
-    const today = new Date();
-    const formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
-
-    const onSubmit = (data: FormValues) => {
-        console.log("Datos del formulario:", data);
-
-        if (actionType === "pdf") {
-            console.log("Generando PDF...");
-            // Aquí tu lógica de exportación
-        } else if (actionType === "print") {
-            console.log("Abriendo menú de impresión...");
-            // Aquí tu lógica de window.print()
-        }
-    };
-
     return (
         <div className="max-w-2xl mx-auto mt-3 p-6 bg-card rounded-xl border shadow-sm">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                        <Label className="flex items-center gap-2">
+                        <Label htmlFor="proxima-fecha" className="flex items-center gap-2">
                             <CalendarDays className="h-4 w-4 text-indigo-600" />
                             Fecha de la Reunión
                         </Label>
-                        <Input value={formattedDate} disabled className="bg-muted" />
+                        <Input id="proxima-fecha" type="date" className="w-full md:w-1/2" {...register("fechaInicial", { required: "La fecha es obligatoria" })}
+                            style={errors.fechaInicial ? { border: "1px solid red" } : {}}
+                        />
+                        {errors.fechaInicial && <span className="text-xs text-red-500">{errors.fechaInicial.message}</span>}
                     </div>
 
                     <div className="space-y-2">
@@ -60,7 +46,7 @@ const GeneratorFormPage = () => {
                             id="asistencia"
                             placeholder="Ej: Juan, Maria..."
                             {...register("asistencia", { required: "La asistencia es obligatoria" })}
-                            className={errors.asistencia ? "border-red-500" : ""}
+                            style={errors.asistencia ? { border: "1px solid red" } : {}}
                         />
                         {errors.asistencia && <span className="text-xs text-red-500">{errors.asistencia.message}</span>}
                     </div>
@@ -75,6 +61,7 @@ const GeneratorFormPage = () => {
                         id="temas"
                         placeholder="Resumen corto de los puntos principales"
                         {...register("temas", { required: "Debes indicar los temas" })}
+                        style={errors.temas ? { border: "1px solid red" } : {}}
                     />
                     {errors.temas && <span className="text-xs text-red-500">{errors.temas.message}</span>}
                 </div>
@@ -86,6 +73,7 @@ const GeneratorFormPage = () => {
                         placeholder="Escribe aquí los detalles, debates y notas importantes..."
                         className="min-h-[150px] resize-none"
                         {...register("desarrollo", { required: "El desarrollo es necesario" })}
+                        style={errors.desarrollo ? { border: "1px solid red" } : {}}
                     />
                     {errors.desarrollo && <span className="text-xs text-red-500">{errors.desarrollo.message}</span>}
                 </div>
@@ -100,6 +88,7 @@ const GeneratorFormPage = () => {
                         placeholder="¿A qué se llegó? ¿Cuáles son los próximos pasos?"
                         className="min-h-[100px] resize-none"
                         {...register("conclusion", { required: "Debes anotar una conclusión" })}
+                        style={errors.conclusion ? { border: "1px solid red" } : {}}
                     />
                     {errors.conclusion && <span className="text-xs text-red-500">{errors.conclusion.message}</span>}
                 </div>
@@ -107,33 +96,24 @@ const GeneratorFormPage = () => {
                 <div className="space-y-2">
                     <Label htmlFor="proxima-fecha" className="flex items-center gap-2">
                         <CalendarPlus className="h-4 w-4 text-indigo-600" />
-                        Próxima Fecha (Opcional)
+                        Próxima Fecha
                     </Label>
-                    <Input id="proxima-fecha" type="date" className="w-full md:w-1/2" {...register("proximaFecha")} />
+                    <Input id="proxima-fecha" type="date" className="w-full md:w-1/2" {...register("proximaFecha", { required: "La fecha es obligatoria" })} style={errors.proximaFecha ? { border: "1px solid red" } : {}}
+                    />
+                    {errors.proximaFecha && <span className="text-xs text-red-500">{errors.proximaFecha.message}</span>}
                 </div>
 
                 <hr className="my-6" />
 
-                {/* 4. Botones con onClick para definir el tipo de acción */}
                 <div className="flex flex-col gap-4">
                     <Button
                         type="submit"
-                        onClick={() => setActionType("pdf")}
+                        // onClick={() => setTempAction("pdf")}
                         className="w-full bg-indigo-600 hover:bg-indigo-700 text-lg py-6 shadow-md dark:text-white"
                     >
                         Generar PDF
                     </Button>
 
-                    <p className="text-center font-medium text-muted-foreground">O</p>
-
-                    <Button
-                        variant={"outline"}
-                        type="submit"
-                        onClick={() => setActionType("print")}
-                        className="w-full border-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950 text-lg py-6 shadow-md"
-                    >
-                        Imprimir
-                    </Button>
                 </div>
             </form>
         </div>
