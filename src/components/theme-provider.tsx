@@ -54,11 +54,11 @@ function disableTransitionsTemporarily() {
   }
 }
 
-function isEditableTarget(target: EventTarget | null) {
-  if (!(target instanceof HTMLElement)) return false
-  if (target.isContentEditable) return true
-  return !!target.closest("input, textarea, select, [contenteditable='true']")
-}
+// function isEditableTarget(target: EventTarget | null) {
+//   if (!(target instanceof HTMLElement)) return false
+//   if (target.isContentEditable) return true
+//   return !!target.closest("input, textarea, select, [contenteditable='true']")
+// }
 
 export function ThemeProvider({
   children,
