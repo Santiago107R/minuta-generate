@@ -85,7 +85,7 @@ const MinutaPDF = ({ formData, formatDate, renderListText }: any) => (
                 <View style={styles.section}>
                     <PDFTitle title="Asistencia" color={colors.red} />
                     {renderListText(formData.asistencia).map((item: string, i: number) => (
-                        <Text key={i} style={styles.listItem}>• {item}</Text>
+                        <Text key={i} style={styles.listItem}>• {item.substring(0, 1).toUpperCase() + item.substring(1).toLowerCase()}</Text>
                     ))}
                 </View>
 
@@ -93,20 +93,20 @@ const MinutaPDF = ({ formData, formatDate, renderListText }: any) => (
                 <View style={styles.section}>
                     <PDFTitle title="Temas Tratados" color={colors.blue} />
                     {renderListText(formData.temas).map((item: string, i: number) => (
-                        <Text key={i} style={styles.listItem}>• {item}</Text>
+                        <Text key={i} style={styles.listItem}>• {item.substring(0, 1).toUpperCase() + item.substring(1).toLowerCase()}</Text>
                     ))}
                 </View>
 
                 {/* Desarrollo */}
                 <View style={styles.section}>
                     <PDFTitle title="Desarrollo de la Reunión" color={colors.gray} />
-                    <Text style={styles.contentText}>{formData.desarrollo}</Text>
+                    <Text style={styles.contentText}>{formData.desarrollo.substring(0, 1).toUpperCase() + formData.desarrollo.substring(1)}</Text>
                 </View>
 
                 {/* Conclusión */}
                 <View style={styles.section}>
                     <PDFTitle title="Conclusión" color={colors.green} />
-                    <Text style={styles.italicText}>{formData.conclusion}</Text>
+                    <Text style={styles.italicText}>{formData.conclusion.substring(0, 1).toUpperCase() + formData.conclusion.substring(1)}</Text>
                 </View>
 
                 {/* Pendientes */}
@@ -114,7 +114,7 @@ const MinutaPDF = ({ formData, formatDate, renderListText }: any) => (
                     <View style={styles.section}>
                         <PDFTitle title="Pendientes" color={colors.coral} />
                         {renderListText(formData.pendientes).map((item: string, i: number) => (
-                            <Text key={i} style={styles.listItem}>• {item}</Text>
+                            <Text key={i} style={styles.listItem}>• {item.substring(0, 1).toUpperCase() + item.substring(1).toLowerCase()}</Text>
                         ))}
                     </View>
                 )}
