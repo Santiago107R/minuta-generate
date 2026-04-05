@@ -123,7 +123,7 @@ const MinutaGeneratedPage = () => {
                     fileName={`Minuta_${formData.fechaInicial}-${today.getTime()}.pdf`}
                 >
                     {({ loading }) => (
-                        <Button variant="destructive" className="w-full sm:w-32" disabled={loading}
+                        <Button variant="destructive" className="w-32" disabled={loading}
                             onClick={() => {
                                 setTimeout(() => {
                                     navigate('/generator')
@@ -139,14 +139,14 @@ const MinutaGeneratedPage = () => {
 
                 <Button
                     variant="default"
-                    className="bg-indigo-700 w-full sm:w-32 text-white"
+                    className="bg-indigo-700 w-32 text-white"
                     onClick={() => printDoc()}
                 >
                     Imprimir
                 </Button>
 
                 <Link to="/">
-                    <Button variant="secondary" className="w-full sm:w-auto" onClick={clearFormData}>Volver al inicio</Button>
+                    <Button variant="secondary" className="w-32" onClick={clearFormData}>Volver al inicio</Button>
                 </Link>
             </div>
         </div>
