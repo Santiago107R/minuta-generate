@@ -105,7 +105,7 @@ const MinutaGeneratedPage = () => {
             </div>
 
             {/* BOTONES */}
-            <div className="flex justify-center items-center mt-6 print:hidden gap-5">
+            <div className="flex justify-center items-center mt-6 print:hidden gap-5 sm:gap-2">
 
                 <PDFDownloadLink
                     document={
