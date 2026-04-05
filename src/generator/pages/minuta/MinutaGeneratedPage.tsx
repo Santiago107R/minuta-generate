@@ -32,10 +32,15 @@ const MinutaGeneratedPage = () => {
     };
 
     const printDoc = () => {
-        window.print()
-        
-        clearFormData()
-    }
+
+        window.onafterprint = () => {
+            navigate('/generator');
+            clearFormData();
+            window.onafterprint = null;
+        };
+
+        window.print();
+    };
 
     return (
         <div className="bg-white p-2 sm:p-8 min-h-screen print:p-10 print:min-h-0">
@@ -69,7 +74,7 @@ const MinutaGeneratedPage = () => {
                 {/* Sección: Desarrollo */}
                 <div className="mb-4 p-4 ">
                     <TitleMinuta title="DESARROLLO DE LA REUNIÓN" bgColor="#64748b" />
-                    <p className="mt-3 pl-4 text-slate-800 text-sm whitespace-pre-wrap leading-relaxed">
+                    <p className="mt-3 pl-4 text-slate-800 text-sm whitespace-pre-wrap warp-break-words leading-relaxed">
                         {formData.desarrollo.substring(0, 1).toUpperCase() + formData.desarrollo.substring(1)}
                     </p>
                 </div>
@@ -77,7 +82,7 @@ const MinutaGeneratedPage = () => {
                 {/* Sección: Conclusión */}
                 <div className="p-5  border-slate-200">
                     <TitleMinuta title="CONCLUSIÓN" bgColor="#22c55e" />
-                    <p className="mt-3 pl-4 text-slate-800 text-sm whitespace-pre-wrap italic">
+                    <p className="mt-3 pl-4 text-slate-800 text-sm whitespace-pre-wrap warp-break-words italic">
                         {formData.conclusion.substring(0, 1).toUpperCase() + formData.conclusion.substring(1)}
                     </p>
                 </div>
@@ -105,7 +110,7 @@ const MinutaGeneratedPage = () => {
             </div>
 
             {/* BOTONES */}
-            <div className="flex justify-center items-center mt-6 print:hidden gap-5 sm:gap-2">
+            <div className="flex flex-wrap justify-center items-center mt-6 print:hidden gap-3 px-2">
 
                 <PDFDownloadLink
                     document={
@@ -118,7 +123,7 @@ const MinutaGeneratedPage = () => {
                     fileName={`Minuta_${formData.fechaInicial}-${today.getTime()}.pdf`}
                 >
                     {({ loading }) => (
-                        <Button variant="destructive" className="w-32 sm:w-10" disabled={loading}
+                        <Button variant="destructive" className="w-full sm:w-32" disabled={loading}
                             onClick={() => {
                                 setTimeout(() => {
                                     navigate('/generator')
@@ -134,14 +139,14 @@ const MinutaGeneratedPage = () => {
 
                 <Button
                     variant="default"
-                    className="bg-indigo-700 w-32 sm:w-10 text-white"
+                    className="bg-indigo-700 w-full sm:w-32 text-white"
                     onClick={() => printDoc()}
                 >
                     Imprimir
                 </Button>
 
                 <Link to="/">
-                    <Button variant="secondary" className="w-32 sm:w-10" onClick={clearFormData}>Volver al inicio</Button>
+                    <Button variant="secondary" className="w-full sm:w-auto" onClick={clearFormData}>Volver al inicio</Button>
                 </Link>
             </div>
         </div>
