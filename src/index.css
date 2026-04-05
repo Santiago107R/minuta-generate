@@ -119,7 +119,8 @@
 }
 
 @layer base {
-  * {
+  * 
+  {
     @apply border-border outline-ring/50;
     }
   body {
@@ -128,7 +129,10 @@
   html {
     @apply font-sans;
     }
-}
+    .dark input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    }
+  }
 
 @media print {
   @page {

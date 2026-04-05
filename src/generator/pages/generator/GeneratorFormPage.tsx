@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { CalendarDays, Users, FileText, CheckCircle, CalendarPlus } from "lucide-react";
+import { CalendarDays, Users, FileText, CheckCircle, CalendarPlus, ListTodo } from "lucide-react";
 import type { FormValues } from "../../types/FormValues";
 
 
@@ -71,7 +71,7 @@ const GeneratorFormPage = ({ onSubmit }: Props) => {
                     <Textarea
                         id="desarrollo"
                         placeholder="Escribe aquí los detalles, debates y notas importantes..."
-                        className="min-h-[150px] resize-none"
+                        className="min-h-37.5 resize-none"
                         {...register("desarrollo", { required: "El desarrollo es necesario" })}
                         style={errors.desarrollo ? { border: "1px solid red" } : {}}
                     />
@@ -86,11 +86,24 @@ const GeneratorFormPage = ({ onSubmit }: Props) => {
                     <Textarea
                         id="conclusion"
                         placeholder="¿A qué se llegó? ¿Cuáles son los próximos pasos?"
-                        className="min-h-[100px] resize-none"
+                        className="min-h-25 resize-none"
                         {...register("conclusion", { required: "Debes anotar una conclusión" })}
                         style={errors.conclusion ? { border: "1px solid red" } : {}}
                     />
                     {errors.conclusion && <span className="text-xs text-red-500">{errors.conclusion.message}</span>}
+
+                    <div className="space-y-2">
+                        <Label htmlFor="pendientes" className="flex items-center gap-2">
+                            <ListTodo className="h-4 w-4 text-indigo-600" />
+                            Pendientes para la próxima reunión
+                        </Label>
+                        <Input
+                            id="pendientes"
+                            placeholder="Ej: Presentar informe, definir objetivos..."
+                            {...register("pendientes")}
+                            className="w-full"
+                        />
+                    </div>
                 </div>
 
                 <div className="space-y-2">

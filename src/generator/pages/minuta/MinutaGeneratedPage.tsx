@@ -22,7 +22,7 @@ const MinutaGeneratedPage = () => {
 
     const renderList = (text: string) => {
         if (!text) return null;
-        return text.split('\n').map((item, index) => (
+        return text.split(/[\n,]/).map((item, index) => (
             item.trim() && <li key={index} className="mb-1 leading-tight">• {item}</li>
         ));
     };
@@ -32,7 +32,7 @@ const MinutaGeneratedPage = () => {
         if (!element) return;
 
         const canvas = await html2canvas(element, {
-            scale: 2, 
+            scale: 2,
             logging: false,
             useCORS: true
         });
@@ -70,7 +70,7 @@ const MinutaGeneratedPage = () => {
                     </ul>
                 </div>
 
-                {/* ... resto de tus secciones (Temas, Desarrollo, etc) ... */}
+                {/* Sección: Temas Tratados */}
                 <div className="mb-4 p-4 border-b">
                     <TitleMinuta title="Temas Tratados" bgColor="blue" />
                     <ul className="mt-3 ml-4 text-slate-700">
@@ -78,6 +78,7 @@ const MinutaGeneratedPage = () => {
                     </ul>
                 </div>
 
+                {/* Sección: Desarrollo */}
                 <div className="mb-4 p-4 border-b">
                     <TitleMinuta title="Desarrollo de la Reunión" bgColor="gray" />
                     <p className="mt-3 text-slate-800 whitespace-pre-wrap leading-relaxed">
@@ -85,6 +86,7 @@ const MinutaGeneratedPage = () => {
                     </p>
                 </div>
 
+                {/* Sección: Conclusión */}
                 <div className="mb-4 p-4 border-b">
                     <TitleMinuta title="Conclusión" bgColor="green" />
                     <p className="mt-3 text-slate-800 whitespace-pre-wrap italic">
@@ -92,6 +94,19 @@ const MinutaGeneratedPage = () => {
                     </p>
                 </div>
 
+                {/* Sección: Pendientes */}
+                {
+                    formData.pendientes && (
+                        <div className="mb-4 p-4 border-b">
+                            <TitleMinuta title="Pendientes" bgColor="coral" />
+                            <ul className="mt-3 ml-4 text-slate-700">
+                                {renderList(formData.pendientes)}
+                            </ul>
+                        </div>
+                    )
+                }
+
+                {/* Sección: Próxima reunión */}
                 {formData.proximaFecha && (
                     <div className="p-4 bg-slate-50 print:bg-white border-t">
                         <p className="text-sm font-semibold text-slate-600">
@@ -112,7 +127,7 @@ const MinutaGeneratedPage = () => {
 
                 <Button
                     variant="default"
-                    className="bg-indigo-700 mx-5 w-32"
+                    className="bg-indigo-700 mx-5 w-32 text-white"
                     onClick={() => window.print()}
                 >
                     Imprimir

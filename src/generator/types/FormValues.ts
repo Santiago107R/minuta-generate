@@ -5,5 +5,6 @@ export type FormValues = {
     temas: string;
     desarrollo: string;
     conclusion: string;
+    pendientes: string;
     proximaFecha: string;
 };
