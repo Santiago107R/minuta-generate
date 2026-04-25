@@ -50,9 +50,9 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase'
     },
 
-    contentText: { fontSize: 11, color: '#1e293b', lineHeight: 1.6 },
+    contentText: { fontSize: 11, color: '#1e293b', lineHeight: 1.6, paddingLeft: 4 },
     listItem: { fontSize: 11, color: '#334155', marginBottom: 3, marginLeft: 10 },
-    italicText: { fontSize: 11, color: '#334155', fontStyle: 'italic' },
+    italicText: { fontSize: 11, color: '#334155', fontStyle: 'italic', paddingLeft: 4 },
 
     footer: {
         padding: 10,
