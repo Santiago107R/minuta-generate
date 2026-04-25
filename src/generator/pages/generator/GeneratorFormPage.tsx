@@ -34,7 +34,7 @@ const GeneratorFormPage = ({ onSubmit }: Props) => {
                         <Input id="proxima-fecha" type="date" className="w-full md:w-1/2" {...register("fechaInicial", { required: "La fecha es obligatoria" })}
                             style={errors.fechaInicial ? { border: "1px solid red" } : {}}
                         />
-                        {errors.fechaInicial && <span className="text-xs text-red-500">{errors.fechaInicial.message}</span>}
+                        {errors.fechaInicial && <span className="text-xs text-red-500 m-2">{errors.fechaInicial.message}</span>}
                     </div>
 
                     <div className="space-y-2">
@@ -48,7 +48,7 @@ const GeneratorFormPage = ({ onSubmit }: Props) => {
                             {...register("asistencia", { required: "La asistencia es obligatoria" })}
                             style={errors.asistencia ? { border: "1px solid red" } : {}}
                         />
-                        {errors.asistencia && <span className="text-xs text-red-500">{errors.asistencia.message}</span>}
+                        {errors.asistencia && <span className="text-xs text-red-500 m-2">{errors.asistencia.message}</span>}
                     </div>
                 </div>
 
@@ -63,7 +63,7 @@ const GeneratorFormPage = ({ onSubmit }: Props) => {
                         {...register("temas", { required: "Debes indicar los temas" })}
                         style={errors.temas ? { border: "1px solid red" } : {}}
                     />
-                    {errors.temas && <span className="text-xs text-red-500">{errors.temas.message}</span>}
+                    {errors.temas && <span className="text-xs text-red-500 m-2">{errors.temas.message}</span>}
                 </div>
 
                 <div className="space-y-2">
@@ -75,7 +75,7 @@ const GeneratorFormPage = ({ onSubmit }: Props) => {
                         {...register("desarrollo", { required: "El desarrollo es necesario" })}
                         style={errors.desarrollo ? { border: "1px solid red" } : {}}
                     />
-                    {errors.desarrollo && <span className="text-xs text-red-500">{errors.desarrollo.message}</span>}
+                    {errors.desarrollo && <span className="text-xs text-red-500 m-2">{errors.desarrollo.message}</span>}
                 </div>
 
                 <div className="space-y-2">
@@ -90,7 +90,7 @@ const GeneratorFormPage = ({ onSubmit }: Props) => {
                         {...register("conclusion", { required: "Debes anotar una conclusión" })}
                         style={errors.conclusion ? { border: "1px solid red" } : {}}
                     />
-                    {errors.conclusion && <span className="text-xs text-red-500">{errors.conclusion.message}</span>}
+                    {errors.conclusion && <span className="text-xs text-red-500 m-2">{errors.conclusion.message}</span>}
 
                     <div className="space-y-2">
                         <Label htmlFor="pendientes" className="flex items-center gap-2">
@@ -111,9 +111,8 @@ const GeneratorFormPage = ({ onSubmit }: Props) => {
                         <CalendarPlus className="h-4 w-4 text-indigo-600" />
                         Próxima Fecha
                     </Label>
-                    <Input id="proxima-fecha" type="date" className="w-full md:w-1/2" {...register("proximaFecha", { required: "La fecha es obligatoria" })} style={errors.proximaFecha ? { border: "1px solid red" } : {}}
+                    <Input id="proxima-fecha" type="date" className="w-full md:w-1/2" {...register("proximaFecha")}
                     />
-                    {errors.proximaFecha && <span className="text-xs text-red-500">{errors.proximaFecha.message}</span>}
                 </div>
 
                 <hr className="my-6" />
