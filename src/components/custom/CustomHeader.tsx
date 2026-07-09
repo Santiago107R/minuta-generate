@@ -21,7 +21,7 @@ const CustomHeader = ({ title }: Props) => {
                 className='hidden lg:block h-18 w-auto justify-self-start'
             />
 
-            <h1 className='text-2xl lg:text-center font-bold tracking-tight text-white justify-self-center'>
+            <h1 className='text-xl lg:text-2xl lg:text-center font-bold tracking-tight text-white justify-self-center'>
                 {title}
             </h1>
 
