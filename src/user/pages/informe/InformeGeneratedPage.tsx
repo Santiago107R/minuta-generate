@@ -38,7 +38,7 @@ const InformeGeneratedPage = () => {
                 {/* Sección: Titulo y Subtitulo */}
                 <div className="p-6 sm:p-8 border-b border-slate-200 bg-slate-50/50 text-center">
                     <h1 className="text-2xl sm:text-4xl font-bold text-slate-900 break-words leading-tight">
-                        {formInformeData.titulo ? formInformeData.titulo.charAt(0).toUpperCase() + formInformeData.titulo.slice(1) : ''}
+                        {formInformeData.titulo ? (formInformeData.titulo.trim().charAt(0).toUpperCase() + formInformeData.titulo.trim().slice(1)) : ''}
                     </h1>
 
                     <p className="mt-4 text-xs sm:text-sm font-medium text-slate-500 uppercase tracking-wider">
@@ -55,7 +55,7 @@ const InformeGeneratedPage = () => {
                             Desarrollo de la reunión
                         </h2>
                         <p className="text-slate-800 text-base whitespace-pre-wrap break-words leading-relaxed text-justify">
-                            {formInformeData.desarrollo ? formInformeData.desarrollo.charAt(0).toUpperCase() + formInformeData.desarrollo.slice(1) : ''}
+                            {formInformeData.desarrollo ? formInformeData.desarrollo.trim().charAt(0).toUpperCase() + formInformeData.desarrollo.trim().slice(1) : ''}
                         </p>
                     </div>
 
@@ -67,7 +67,7 @@ const InformeGeneratedPage = () => {
                                     Conclusión
                                 </h2>
                                 <p className="text-slate-700 text-base whitespace-pre-wrap break-words leading-relaxed italic text-justify">
-                                    {formInformeData.conclusion ? formInformeData.conclusion.charAt(0).toUpperCase() + formInformeData.conclusion.slice(1) : ''}
+                                    {formInformeData.conclusion ? formInformeData.conclusion.trim().charAt(0).toUpperCase() + formInformeData.conclusion.trim().slice(1) : ''}
                                 </p>
                             </div>
                         )

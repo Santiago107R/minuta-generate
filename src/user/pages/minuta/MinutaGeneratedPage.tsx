@@ -65,7 +65,7 @@ const MinutaGeneratedPage = () => {
                 <div className="mb-4 p-4 ">
                     <TitleMinuta title="DESARROLLO DE LA REUNIÓN" bgColor="#64748b" />
                     <p className="mt-3 pl-4 text-slate-800 text-sm whitespace-pre-wrap warp-break-words leading-relaxed">
-                        {formData.desarrollo.substring(0, 1).toUpperCase() + formData.desarrollo.substring(1)}
+                        {formData.desarrollo.trim().charAt(0).toUpperCase() + formData.desarrollo.trim().slice(1)}
                     </p>
                 </div>
 
@@ -73,7 +73,7 @@ const MinutaGeneratedPage = () => {
                 <div className="p-5  border-slate-200">
                     <TitleMinuta title="CONCLUSIÓN" bgColor="#22c55e" />
                     <p className="mt-3 pl-4 text-slate-800 text-sm whitespace-pre-wrap warp-break-words italic">
-                        {formData.conclusion.substring(0, 1).toUpperCase() + formData.conclusion.substring(1)}
+                        {formData.conclusion.trim().charAt(0).toUpperCase() + formData.conclusion.trim().slice(1)}
                     </p>
                 </div>
 
