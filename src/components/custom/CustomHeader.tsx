@@ -18,10 +18,10 @@ const CustomHeader = ({ title }: Props) => {
             <img
                 src="/logo_trans.png"
                 alt="Logotipo de la empresa - Código Ideal"
-                className='h-18 w-auto justify-self-start'
+                className='hidden lg:block h-18 w-auto justify-self-start'
             />
 
-            <h1 className='hidden lg:block text-2xl text-center font-bold tracking-tight text-white justify-self-center'>
+            <h1 className='text-2xl lg:text-center font-bold tracking-tight text-white justify-self-center'>
                 {title}
             </h1>
 
