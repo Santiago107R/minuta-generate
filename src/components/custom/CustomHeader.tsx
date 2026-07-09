@@ -13,7 +13,7 @@ const CustomHeader = ({ title }: Props) => {
     const { toggleTheme } = useTheme()
 
     return (
-        <nav className='grid grid-cols-3 items-center p-5 border-b bg-indigo-600 dark:bg-indigo-800'>
+        <nav className='grid grid-cols-2 lg:grid-cols-3 items-center p-5 border-b bg-indigo-600 dark:bg-indigo-800'>
 
             <img
                 src="/logo_trans.png"
