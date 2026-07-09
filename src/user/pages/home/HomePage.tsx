@@ -26,12 +26,12 @@ const HomePage = () => {
                     </Button>
                 </Link>
 
-                <Link to={'/informe_form'}>
+                <Link to={'/generator-informe'}>
                     <Button
                         size="lg"
                         className="px-10 font-semibold bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-800 dark:hover:bg-indigo-700 text-white shadow-lg transition-all"
                     >
-                        Empezar Informe
+                        Empezar Informe Semanal
                     </Button>
                 </Link>
             </main>

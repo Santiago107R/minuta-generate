@@ -27,7 +27,7 @@ const CustomHeader = ({ title }: Props) => {
 
             <div className='flex items-center gap-4 justify-self-end'>
                 <Link to={'/'} className="text-white hover:opacity-80 transition-opacity font-medium">
-                    Inicio
+                    <p className='lg:text-xl'>Inicio</p>
                 </Link>
 
                 <Button

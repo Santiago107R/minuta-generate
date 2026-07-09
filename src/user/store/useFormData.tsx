@@ -1,10 +1,10 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { FormValues } from '../types/FormValues'
+import type { FormValuesMinuta } from '../types/FormValues'
 
 type FormState = {
-    formData: FormValues | null;
-    setFormData: (data: Partial<FormValues>) => void;
+    formData: FormValuesMinuta | null;
+    setFormData: (data: Partial<FormValuesMinuta>) => void;
     clearFormData: () => void;
 }
 
@@ -16,7 +16,7 @@ export const useFromStore = create<FormState>()(
                 set((state) => ({
                     formData: state.formData
                         ? { ...state.formData, ...data }
-                        : (data as FormValues)
+                        : (data as FormValuesMinuta)
                 })),
             clearFormData: () => set({ formData: null })
         }),

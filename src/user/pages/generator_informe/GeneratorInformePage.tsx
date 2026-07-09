@@ -1,21 +1,21 @@
-import GeneratorFormPage from "./GeneratorInformeFormPage";
-import type { FormValues } from "../../types/FormValues";
+import type { FormValuesInforme } from "../../types/FormValues";
 import { useNavigate } from "react-router";
-import { useFromStore } from "@/user/store/useFormData";
+import GeneratorInformeFormPage from "./GeneratorInformeFormPage";
+import { useFromInformeStore } from "@/user/store/useFormInformeData";
 
 const GeneratorInformePage = () => {
 
-    const { setFormData } = useFromStore()
+    const { setFormInformeData } = useFromInformeStore()
     const navigate = useNavigate()
 
-    const handleSubmit = (formLike: FormValues) => {
-        setFormData(formLike)
+    const handleSubmit = (formLike: FormValuesInforme) => {
+        setFormInformeData(formLike)
 
-        navigate('/minuta')
+        navigate('/informe')
     }
 
     return (
-        <GeneratorFormPage onSubmit={handleSubmit} />
+        <GeneratorInformeFormPage onSubmit={handleSubmit} />
     )
 }
 

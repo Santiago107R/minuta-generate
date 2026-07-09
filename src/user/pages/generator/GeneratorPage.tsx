@@ -1,5 +1,5 @@
 import GeneratorFormPage from "./GeneratorFormPage";
-import type { FormValues } from "../../types/FormValues";
+import type { FormValuesMinuta } from "../../types/FormValues";
 import { useNavigate } from "react-router";
 import { useFromStore } from "@/user/store/useFormData";
 
@@ -8,7 +8,7 @@ const GeneratorPage = () => {
     const { setFormData } = useFromStore()
     const navigate = useNavigate()
 
-    const handleSubmit = (formLike: FormValues) => {
+    const handleSubmit = (formLike: FormValuesMinuta) => {
         setFormData(formLike)
 
         navigate('/minuta')

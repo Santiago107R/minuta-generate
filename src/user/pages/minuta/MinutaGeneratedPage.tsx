@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import NoData from "./ui/NoData";
 import MinutaPDF from "./MinutaPdf";
+import { formatDate } from "@/utils/formatDate";
 
 const MinutaGeneratedPage = () => {
     const { formData, clearFormData } = useFromStore();
@@ -12,12 +13,6 @@ const MinutaGeneratedPage = () => {
     const navigate = useNavigate()
 
     if (!formData) return <NoData />;
-
-    const formatDate = (dateStr?: string) => {
-        if (!dateStr) return "";
-        const [year, month, day] = dateStr.split("-");
-        return `${day}/${month}/${year}`;
-    };
 
     const renderList = (text: string) => {
         if (!text) return null;

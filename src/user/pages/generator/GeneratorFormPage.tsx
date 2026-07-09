@@ -4,13 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { CalendarDays, Users, FileText, CheckCircle, CalendarPlus, ListTodo } from "lucide-react";
-import type { FormValues } from "../../types/FormValues";
+import type { FormValuesMinuta } from "../../types/FormValues";
 
 
 
 interface Props {
 
-    onSubmit: (formLike: FormValues) => void;
+    onSubmit: (formLike: FormValuesMinuta) => void;
 }
 
 const GeneratorFormPage = ({ onSubmit }: Props) => {
@@ -19,7 +19,7 @@ const GeneratorFormPage = ({ onSubmit }: Props) => {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<FormValues>();
+    } = useForm<FormValuesMinuta>();
 
     return (
         <div className="max-w-2xl mx-auto mt-3 p-6 bg-card rounded-xl border shadow-sm">
@@ -123,7 +123,7 @@ const GeneratorFormPage = ({ onSubmit }: Props) => {
                         // onClick={() => setTempAction("pdf")}
                         className="w-full bg-indigo-600 hover:bg-indigo-700 text-lg py-6 shadow-md dark:text-white"
                     >
-                        Generar PDF
+                        Generar Minuta
                     </Button>
 
                 </div>

@@ -4,6 +4,8 @@ import HomePage from "./user/pages/home/HomePage";
 import ErrorPage from "./user/pages/error/ErrorPage";
 import GeneratorPage from "./user/pages/generator/GeneratorPage";
 import MinutaGeneratedPage from "./user/pages/minuta/MinutaGeneratedPage";
+import GeneratorInformePage from "./user/pages/generator_informe/GeneratorInformePage";
+import InformeGeneratedPage from "./user/pages/informe/InformeGeneratedPage";
 
 export const appRouter = createHashRouter([
     {
@@ -20,7 +22,7 @@ export const appRouter = createHashRouter([
                 element: <GeneratorPage />,
             },
             {
-                path: 'informe',
+                path: 'generator-informe',
                 element: <GeneratorInformePage />
             }
         ],
@@ -31,4 +33,10 @@ export const appRouter = createHashRouter([
         element: <MinutaGeneratedPage />,
         errorElement: <ErrorPage />,
     },
+
+    {
+        path: 'informe',
+        element: <InformeGeneratedPage />,
+        errorElement: <ErrorPage />,
+    }
 ])
