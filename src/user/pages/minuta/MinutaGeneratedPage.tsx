@@ -6,6 +6,9 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import NoData from "./ui/NoData";
 import MinutaPDF from "./MinutaPdf";
 import { formatDate } from "@/utils/formatDate";
+import { useEffect } from "react";
+import { renderList } from "@/utils/renderList";
+import { renderListText } from "@/utils/renderListText";
 
 const MinutaGeneratedPage = () => {
     const { formData, clearFormData } = useFromStore();
@@ -14,17 +17,9 @@ const MinutaGeneratedPage = () => {
 
     if (!formData) return <NoData />;
 
-    const renderList = (text: string) => {
-        if (!text) return null;
-        return text.split(/[\n,]/).map((item, index) => (
-            item.trim() && <li key={index} className="mb-1 leading-tight">• {item.trim().substring(0, 1).toUpperCase() + item.trim().substring(1).toLowerCase()}</li>
-        ));
-    };
-
-    const renderListText = (text: string) => {
-        if (!text) return [];
-        return text.split(/[\n,]/).filter(item => item.trim() !== "").map(item => item.trim());
-    };
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const printDoc = () => {
 

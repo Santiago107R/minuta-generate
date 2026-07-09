@@ -5,11 +5,16 @@ import NoData from "./ui/NoData";
 import InformePdf from "./InformePdf";
 import { useFromInformeStore } from "@/user/store/useFormInformeData";
 import { format2Date } from "@/utils/format2Date";
+import { useEffect } from "react";
 
 const InformeGeneratedPage = () => {
     const { formInformeData, clearFormInformeData } = useFromInformeStore();
     const today = new Date
     const navigate = useNavigate()
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     if (!formInformeData) return <NoData />;
 
