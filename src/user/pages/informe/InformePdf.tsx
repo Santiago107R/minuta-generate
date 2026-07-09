@@ -77,9 +77,8 @@ const styles = StyleSheet.create({
     }
 });
 
-// Helper para asegurar la primera letra en mayúscula sin romper si viene undefined
 const capitalize = (text: string) =>
-    text ? text.charAt(0).toUpperCase() + text.slice(1) : '';
+    text ? text.trim().charAt(0).toUpperCase() + text.trim().slice(1) : '';
 
 const InformePdf = ({ formInformeData, format2Date }: any) => {
     const fechaPeriodo = formInformeData.fechaDesde && formInformeData.fechaHasta
