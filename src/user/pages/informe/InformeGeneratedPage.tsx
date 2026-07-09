@@ -6,6 +6,7 @@ import InformePdf from "./InformePdf";
 import { useFromInformeStore } from "@/user/store/useFormInformeData";
 import { format2Date } from "@/utils/format2Date";
 import { useEffect } from "react";
+import { textCleaner } from "@/utils/textCleaner";
 
 const InformeGeneratedPage = () => {
     const { formInformeData, clearFormInformeData } = useFromInformeStore();
@@ -86,7 +87,7 @@ const InformeGeneratedPage = () => {
                             format2Date={format2Date}
                         />
                     }
-                    fileName={`Informe_${formInformeData.titulo}-${format2Date(formInformeData.fechaDesde, formInformeData.fechaHasta)}-${today.getTime()}.pdf`}
+                    fileName={`Informe_${textCleaner(formInformeData.titulo)}-${format2Date(formInformeData.fechaDesde, formInformeData.fechaHasta)}-${today.getTime()}.pdf`}
                 >
                     {({ loading }) => (
                         <Button variant="destructive" className="w-32" disabled={loading}
