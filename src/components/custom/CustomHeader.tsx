@@ -8,15 +8,24 @@ interface Props {
 
 }
 
-const CustomHeader = ({title}: Props) => {
+const CustomHeader = ({ title }: Props) => {
 
-    const {toggleTheme} = useTheme()
+    const { toggleTheme } = useTheme()
 
     return (
-        <nav className='flex items-center justify-between p-5 border-b bg-indigo-600 dark:bg-indigo-800'>
-            <h1 className='text-2xl font-bold tracking-tight text-white'>{title}</h1>
-            
-            <div className='flex items-center gap-4'>
+        <nav className='grid grid-cols-3 items-center p-5 border-b bg-indigo-600 dark:bg-indigo-800'>
+
+            <img
+                src="/logo_trans.png"
+                alt="Logotipo de la empresa - Código Ideal"
+                className='h-18 w-auto justify-self-start'
+            />
+
+            <h1 className='text-2xl text-center font-bold tracking-tight text-white justify-self-center'>
+                {title}
+            </h1>
+
+            <div className='flex items-center gap-4 justify-self-end'>
                 <Link to={'/'} className="text-white hover:opacity-80 transition-opacity font-medium">
                     Inicio
                 </Link>
@@ -32,6 +41,7 @@ const CustomHeader = ({title}: Props) => {
                     <span className="sr-only">Cambiar tema</span>
                 </Button>
             </div>
+
         </nav>
     )
 }

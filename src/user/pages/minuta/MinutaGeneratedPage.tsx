@@ -1,4 +1,4 @@
-import { useFromStore } from "@/generator/store/useFormData";
+import { useFromStore } from "@/user/store/useFormData";
 import TitleMinuta from "../generator/ui/TitleMinuta";
 import { Link, useNavigate } from "react-router";
 import { Button } from "@/components/ui/button";

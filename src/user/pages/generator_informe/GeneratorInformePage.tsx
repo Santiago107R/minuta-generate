@@ -1,16 +1,16 @@
-import GeneratorFormPage from "./GeneratorFormPage";
+import GeneratorFormPage from "./GeneratorInformeFormPage";
 import type { FormValues } from "../../types/FormValues";
 import { useNavigate } from "react-router";
-import { useFromStore } from "@/generator/store/useFormData";
+import { useFromStore } from "@/user/store/useFormData";
 
-const GeneratorPage = () => {
+const GeneratorInformePage = () => {
 
     const { setFormData } = useFromStore()
     const navigate = useNavigate()
-    
+
     const handleSubmit = (formLike: FormValues) => {
         setFormData(formLike)
-        
+
         navigate('/minuta')
     }
 
@@ -19,4 +19,4 @@ const GeneratorPage = () => {
     )
 }
 
-export default GeneratorPage
+export default GeneratorInformePage

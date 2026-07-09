@@ -1,9 +1,9 @@
 import { createHashRouter } from "react-router";
-import GeneratorLayout from "./generator/layouts/GeneratorLayout";
-import HomePage from "./generator/pages/home/HomePage";
-import ErrorPage from "./generator/pages/error/ErrorPage";
-import GeneratorPage from "./generator/pages/generator/GeneratorPage";
-import MinutaGeneratedPage from "./generator/pages/minuta/MinutaGeneratedPage";
+import GeneratorLayout from "./user/layouts/GeneratorLayout";
+import HomePage from "./user/pages/home/HomePage";
+import ErrorPage from "./user/pages/error/ErrorPage";
+import GeneratorPage from "./user/pages/generator/GeneratorPage";
+import MinutaGeneratedPage from "./user/pages/minuta/MinutaGeneratedPage";
 
 export const appRouter = createHashRouter([
     {
@@ -19,6 +19,10 @@ export const appRouter = createHashRouter([
                 path: 'generator',
                 element: <GeneratorPage />,
             },
+            {
+                path: 'informe',
+                element: <GeneratorInformePage />
+            }
         ],
     },
 

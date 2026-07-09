@@ -20,9 +20,18 @@ const HomePage = () => {
                 <Link to={'/generator'}>
                     <Button
                         size="lg"
+                        className="px-10 mb-4 font-semibold bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-800 dark:hover:bg-indigo-700 text-white shadow-lg transition-all"
+                    >
+                        Empezar Minuta
+                    </Button>
+                </Link>
+
+                <Link to={'/informe_form'}>
+                    <Button
+                        size="lg"
                         className="px-10 font-semibold bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-800 dark:hover:bg-indigo-700 text-white shadow-lg transition-all"
                     >
-                        Empezar ahora
+                        Empezar Informe
                     </Button>
                 </Link>
             </main>
